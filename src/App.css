@@ -494,3 +494,95 @@ about
 .logo-tamaño{
     width: 10rem;
 }
+
+/*diseño del css para la parte de hospitales*/
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+ul.delegacion{
+    background:#72d0f4;
+    padding: 4%;
+    list-style: none;
+    margin-bottom: 0;
+}
+ul.delegacion li.live{    
+    float: left;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+span.m_1{
+	font-weight:100;
+}
+ul.delegacion li.room{
+	float:right;
+	color:#fff;
+	font-size:0.85rem;
+	text-transform:uppercase;
+	margin-top:3px;
+	font-weight: 700;
+}
+.clear{clear: both;}
+
+.view {
+    overflow: hidden;
+    position: relative;
+    border-bottom: 5px solid #00bff0;
+ }
+ .view .mask,.view .content { /*ver mas */
+    position: absolute;
+    overflow: hidden;
+    top:80px;
+    left: 130px;
+ }
+ .view-fifth img {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+ }
+ .view-fifth .mask {
+   -webkit-transform: translateX(-300px);
+    -moz-transform: translateX(-300px);
+    -o-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    transform: translateX(-300px);
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+ }
+ .view-fifth:hover .mask {
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+ }
+ 
+ .info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background:#00BFF0;
+    color: #fff;
+    text-transform: uppercase;
+       font-size:0.9em;
+ }
+ .info:hover {
+    background:#000;
+ }
+ 
+ .img-responsive2{
+    display: block;
+    max-width: 100%;
+    height: auto;
+ }
