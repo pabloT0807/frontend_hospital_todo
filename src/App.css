@@ -586,3 +586,8 @@ ul.delegacion li.room{
     max-width: 100%;
     height: auto;
  }
+
+ /*division*/
+ .row-divider{
+    border-bottom: 3px solid blue;
+ }
