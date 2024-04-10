@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Modal from "react-modal";
 
-
+/*cambio*/
 
 function IztapalapaCasos() {
   const [datos, setDatos] = useState([]);
