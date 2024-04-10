@@ -7,6 +7,7 @@ import "./App.css";
 import Modal from "react-modal";
 
 /*cambio*/
+/*cambio2*/
 
 function IztapalapaCasos() {
   const [datos, setDatos] = useState([]);
