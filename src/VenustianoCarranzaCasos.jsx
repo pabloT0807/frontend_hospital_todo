@@ -9,7 +9,7 @@ import Modal from "react-modal";
 /*cambio*/
 /*cambio2*/
 
-function IztapalapaCasos() {
+function VenustianoCarranzaCasos() {
   const [datos, setDatos] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [mes, setMes] = useState("");
@@ -40,7 +40,7 @@ function IztapalapaCasos() {
     if (selectedVirus && mes) {
       try {
         const response = await axios.post(
-          `http://localhost:8089/v1/vigilancia/calcular-prediccion/Iztapalapa/${selectedVirus}/${mes}`
+          `http://localhost:8089/v1/vigilancia/calcular-prediccion/VenustianoCarranza/${selectedVirus}/${mes}`
         );
         console.log("Respuesta del servidor:", response.data);
         const newData = datos.map((item) => {
@@ -96,7 +96,7 @@ const handleAceptarBacterias = async () => {
   if (selectedBacterias && mes) {
     try {
       const response = await axios.post(
-        `http://localhost:8089/v1/vigilancia/calcular-prediccion-bacterias/Iztapalapa/${selectedBacterias}/${mes}`
+        `http://localhost:8089/v1/vigilancia/calcular-prediccion-bacterias/VenustianoCarranza/${selectedBacterias}/${mes}`
       );
       console.log("Respuesta del servidor:", response.data);
       const newDataBacterias = datos.map((item) => {
@@ -141,7 +141,7 @@ const handleCancelarBacterias = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8089/v1/vigilancia/buscar/Iztapalapa");
+        const response = await axios.get("http://localhost:8089/v1/vigilancia/buscar/VenustianoCarranza");
         console.log(response.data);
         setDatos(response.data);
 
@@ -172,7 +172,7 @@ const handleCancelarBacterias = () => {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h2>Casos en Iztapalapa</h2>
+      <h2>Casos en VenustianoCarranza</h2>
       <button style={{marginRight : "60px"}} class="btn btn-success" onClick={() => setModalIsOpen(true)}>Virus predicción</button>
       <button  class="btn btn-warning" onClick={() => setModalIsOpenBacterias(true)}>bacterias  predicción</button>
       <CasosVirus
@@ -344,4 +344,4 @@ const CasosBacterias = ({ casosBacterias }) => {
   );
 };
 
-export default IztapalapaCasos;
+export default VenustianoCarranzaCasos;
