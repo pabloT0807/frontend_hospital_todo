@@ -24,6 +24,7 @@ import {tlahuac} from "./alcaldias/Tlahuac.jsx";
 import {tlalpan} from "./alcaldias/Tlalpan.jsx";
 import {venustiano} from "./alcaldias/Venustiano.jsx";
 import {xochimilco} from "./alcaldias/Xochimilco.jsx";
+import {milpaAlta} from "./alcaldias/Milpa Alta.jsx";
 
 /** */
 import image1 from "./img/LOGOOFICIAL.png";
@@ -61,141 +62,101 @@ const Mapa = () => {
     tlalpan.forEach((location) => {bounds.extend(location);});
     alcu.forEach((location) => {bounds.extend(location);});
 
-  new window.google.maps.Polygon({
-    paths: alcu,  
-    map: map,
-    fillColor: '#a3f77e',
-    fillOpacity: 0.5,  
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: albe,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: iztacalco,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: venustiano,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: azcapotzalco,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: miguelhidalgo,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: gustavo,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: coyoacan,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: iztapalapa,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: tlahuac,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: xochimilco,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: tlalpan,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: alvaro,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-  new window.google.maps.Polygon({
-    paths: magdalena,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
-    new window.google.maps.Polygon({
-    paths: cuajimalpa,
-    map: map,
-    fillColor: '#a3f77e', // Puedes cambiar el color para el segundo polígono
-    fillOpacity: 0.5,
-    strokeColor: 'black',
-    strokeOpacity: 1,
-    strokeWeight: 2,
-  });
+// Definir la función para asignar color según el valor del caso
+function asignarColor(caso) {
+  if (caso >= 0 && caso <= 4) {
+    return '#00ff00'; // Verde
+  } else if (caso >= 5 && caso <= 9) {
+    return '#ffff00'; // Amarillo
+  } else if (caso >= 10 && caso <= 14) {
+    return '#ffa500'; // Naranja
+  } else if (caso >= 15 && caso <= 19) {
+    return '#ff0000'; // Rojo
+  } else {
+    return '#ff0000'; // Otro color por defecto
+  }
+}
+
+// Definir las listas de coordenadas de los polígonos y casos
+var paths = [azcapotzalco, alcu, albe, alvaro, coyoacan, cuajimalpa, gustavo, iztacalco, iztapalapa, magdalena, miguelhidalgo, tlahuac, tlalpan, venustiano, xochimilco, milpaAlta];
+var casosList = [
+  [5, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18,18],
+  [10, 15, 20, 25, 30, 35, 40, 5, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 , 1],
+  [15, 20, 25, 30, 35, 40, 45, 5, 10, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+  [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [15, 20, 25, 30, 35, 40, 45, 5, 10, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+  [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [15, 20, 25, 30, 35, 40, 45, 5, 10, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
+  [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+
+var currentCasosIndex = 0; // Índice actual de la lista de casos
+var intervalID; // ID del intervalo
+var polygons = []; // Almacenar referencias a los polígonos creados
+
+// Función para crear los polígonos con la lista de casos actual
+function crearPoligonos() {
+  // Obtener la lista de casos actual
+  var casos = casosList[currentCasosIndex];
+
+  // Borrar los polígonos existentes
+  for (var i = 0; i < polygons.length; i++) {
+    polygons[i].setMap(null);
+  }
+  polygons = [];
+
+  // Crear nuevos polígonos
+  for (var i = 0; i < paths.length; i++) {
+    var fillColor = asignarColor(casos[i]);
+
+    var polygon = new window.google.maps.Polygon({
+      paths: paths[i],
+      fillColor: fillColor,
+      fillOpacity: 0.5,
+      strokeColor: 'black',
+      strokeOpacity: 1,
+      strokeWeight: 2
+    });
+
+    polygons.push(polygon);
+
+    polygon.setMap(map);
+
+    console.log("Casos:", casos[i], "Color asignado:", fillColor);
+  }
+}
+
+// Función para actualizar la lista de casos cada 5 segundos
+function actualizarCasos() {
+  // Limpiar el intervalo anterior si existe
+  if (intervalID) {
+    clearInterval(intervalID);
+  }
+
+  // Crear un nuevo intervalo
+  intervalID = setInterval(function() {
+    // Incrementar el índice para obtener la próxima lista de casos
+    currentCasosIndex = (currentCasosIndex + 1) % casosList.length;
+
+    // Actualizar los polígonos con la nueva lista de casos
+    crearPoligonos();
+  }, 5000); // Cambiar cada 5 segundos (5000 milisegundos)
+}
+
+// Llamar a la función para crear los polígonos con la lista de casos inicial
+crearPoligonos();
+
+// Llamar a la función para actualizar los casos cada 5 segundos
+actualizarCasos();
+
+
   map.fitBounds(bounds);
   setMap(map);
 }, [alcu,albe,iztacalco,venustiano,azcapotzalco,miguelhidalgo,gustavo,coyoacan,iztapalapa,tlahuac,xochimilco,tlalpan,alvaro,magdalena,cuajimalpa]);  
@@ -215,19 +176,7 @@ const Mapa = () => {
       }
     }
   };
-  /**peticiones 
-  async function Load() {
-    const result = await axios.get(
-      "http://localhost:8089/api/v1/vigilancia/obtenerHospitales"
-    );
-    setHospitales(result.data);
-    console.log(result.data);
-  }
 
-  /*useEffect(() => {
-    /**ACTUALIZAR PANTALLA 
-    (async () => await Load())();
-  }, []);*/
 
   
   const handleNavLinkClick = (event, sectionId) => {
